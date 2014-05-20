@@ -18,8 +18,7 @@ test('deviation', function(t){
   var deviated = deviation(polyFC, ptFC, 'population', 'pop_dev')
 
   t.equal(deviated.features[0].geometry.type, 'Polygon')
-  t.equal(deviated.features[0].properties.pop_dev, 600)
-  t.equal(deviated.features[1].properties.pop_dev, 300)
+  t.equal(deviated.features[0].properties.pop_dev, 50)
 
   t.end()
 })
