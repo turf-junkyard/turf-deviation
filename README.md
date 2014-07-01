@@ -4,6 +4,29 @@ turf-deviation
 
 Calculates the standard deviation value of a field for points within a set of polygons.
 
+###Install
+
+```sh
+npm install turf-deviation
+```
+
+###Parameters
+
+|name|description|
+|---|---|
+|polyFC|a FeatureCollection of polygons|
+|pointFC|a FeatureCollection of points|
+|inField|field from pointFC to aggregate|
+|outField|field to append to polyFC representing deviation|
+
+###Usage
+
+```js
+deviation(polyFC, ptFC, inField, outField)
+```
+
+###Example
+
 ```javascript
 var deviation = require('turf-deviation')
 var point = require('turf-point')
