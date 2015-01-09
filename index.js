@@ -9,7 +9,7 @@ var inside = require('turf-inside');
 * @param {FeatureCollection} pointFC - a FeatureCollection of points
 * @param {String} inField - the field from PointFC from which to aggregate
 * @param {String} outField - the field to append to polyFC representing deviation
-* @result {FeatureCollection} deviated - a FeatureCollection of polygons with appended field representing deviation
+* @return {FeatureCollection} deviated - a FeatureCollection of polygons with appended field representing deviation
 * @example
 * var poly1 = turf.polygon([[[0,0],[10,0],[10,10], [0,10]]]);
 * var poly2 = turf.polygon([[[10,0],[20,10],[20,20], [20,0]]]);
