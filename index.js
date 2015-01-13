@@ -11,14 +11,31 @@ var inside = require('turf-inside');
 * @param {String} outField the field to append to polyFC representing deviation
 * @return {FeatureCollection} a FeatureCollection of Polygon features with appended field representing deviation
 * @example
-* var poly1 = turf.polygon([[[0,0],[10,0],[10,10], [0,10]]]);
-* var poly2 = turf.polygon([[[10,0],[20,10],[20,20], [20,0]]]);
+* var poly1 = turf.polygon([[
+*   [-97.807159, 30.270335],
+*   [-97.807159, 30.369913],
+*   [-97.612838, 30.369913],
+*   [-97.612838, 30.270335],
+*   [-97.807159, 30.270335]
+* ]]);
+* var poly2 = turf.polygon([[
+*   [-97.825698, 30.175405],
+*   [-97.825698, 30.264404],
+*   [-97.630691, 30.264404],
+*   [-97.630691, 30.175405],
+*   [-97.825698, 30.175405]
+* ]]);
 * var polyFC = turf.featurecollection([poly1, poly2]);
-* var pt1 = turf.point(1,1, {population: 500});
-* var pt2 = turf.point(1,3, {population: 400});
-* var pt3 = turf.point(14,2, {population: 600});
-* var pt4 = turf.point(13,1, {population: 500});
-* var pt5 = turf.point(19,7, {population: 200});
+* var pt1 = turf.point(-97.709655, 30.311245,
+*   {population: 500});
+* var pt2 = turf.point(-97.766647, 30.345028,
+*   {population: 400});
+* var pt3 = turf.point(-97.765274, 30.294646,
+*   {population: 600});
+* var pt4 = turf.point(-97.753601, 30.216355,
+*   {population: 500});
+* var pt5 = turf.point(-97.667083, 30.208047,
+*   {population: 200});
 * var ptFC = turf.featurecollection([pt1, pt2, pt3, pt4, pt5]);
 *
 * var inField = 'population';
