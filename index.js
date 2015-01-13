@@ -5,11 +5,11 @@ var inside = require('turf-inside');
 * Calculates the standard deviation value of a field for points within a set of polygons.
 *
 * @module turf/deviation
-* @param {FeatureCollection} polyFC - a FeatureCollection of polygons
-* @param {FeatureCollection} pointFC - a FeatureCollection of points
-* @param {String} inField - the field from PointFC from which to aggregate
-* @param {String} outField - the field to append to polyFC representing deviation
-* @return {FeatureCollection} deviated - a FeatureCollection of polygons with appended field representing deviation
+* @param {FeatureCollection} polyFC a FeatureCollection of {@link Polygon} features
+* @param {FeatureCollection} pointFC a FeatureCollection of {@link Point} features
+* @param {String} inField the field in `pointFC` from which to aggregate
+* @param {String} outField the field to append to polyFC representing deviation
+* @return {FeatureCollection} a FeatureCollection of Polygon features with appended field representing deviation
 * @example
 * var poly1 = turf.polygon([[[0,0],[10,0],[10,10], [0,10]]]);
 * var poly2 = turf.polygon([[[10,0],[20,10],[20,20], [20,0]]]);
@@ -24,9 +24,13 @@ var inside = require('turf-inside');
 * var inField = 'population';
 * var outField = 'pop_deviation';
 *
-* var deviated = turf.deviation(polyFC, ptFC, inField, outField);
+* var deviated = turf.deviation(
+*   polyFC, ptFC, inField, outField);
 *
-* //=deviated
+* var result = turf.featurecollection(
+*   ptFC.features.concat(deviated.features));
+*
+* //=result
 */
 
 module.exports = function(polyFC, ptFC, inField, outField, done){
