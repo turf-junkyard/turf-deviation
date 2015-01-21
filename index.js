@@ -26,15 +26,15 @@ var inside = require('turf-inside');
 *   [-97.825698, 30.175405]
 * ]]);
 * var polyFC = turf.featurecollection([poly1, poly2]);
-* var pt1 = turf.point(-97.709655, 30.311245,
+* var pt1 = turf.point([-97.709655, 30.311245],
 *   {population: 500});
-* var pt2 = turf.point(-97.766647, 30.345028,
+* var pt2 = turf.point([-97.766647, 30.345028],
 *   {population: 400});
-* var pt3 = turf.point(-97.765274, 30.294646,
+* var pt3 = turf.point([-97.765274, 30.294646],
 *   {population: 600});
-* var pt4 = turf.point(-97.753601, 30.216355,
+* var pt4 = turf.point([-97.753601, 30.216355],
 *   {population: 500});
-* var pt5 = turf.point(-97.667083, 30.208047,
+* var pt5 = turf.point([-97.667083, 30.208047],
 *   {population: 200});
 * var ptFC = turf.featurecollection([pt1, pt2, pt3, pt4, pt5]);
 *
