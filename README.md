@@ -1,53 +1,80 @@
-turf-deviation
-==============
+# turf-deviation
+
 [![build status](https://secure.travis-ci.org/Turfjs/turf-deviation.png)](http://travis-ci.org/Turfjs/turf-deviation)
+
+turf deviation module
+
+
+### `turf.deviation(polygons, points, inField, outField)`
 
 Calculates the standard deviation value of a field for points within a set of polygons.
 
-###Install
 
-```sh
-npm install turf-deviation
-```
+### Parameters
 
-###Parameters
+| parameter  | type              | description                                              |
+| ---------- | ----------------- | -------------------------------------------------------- |
+| `polygons` | FeatureCollection | a FeatureCollection of Polygon features                  |
+| `points`   | FeatureCollection | a FeatureCollection of Point features                    |
+| `inField`  | String            | the field in `points` from which to aggregate            |
+| `outField` | String            | the field to append to `polygons` representing deviation |
 
-|name|description|
-|---|---|
-|polyFC|a FeatureCollection of polygons|
-|pointFC|a FeatureCollection of points|
-|inField|field from pointFC to aggregate|
-|outField|field to append to polyFC representing deviation|
 
-###Usage
+### Example
 
 ```js
-deviation(polyFC, ptFC, inField, outField)
+var polygons = turf.featurecollection([
+  turf.polygon([[
+    [-97.807159, 30.270335],
+    [-97.807159, 30.369913],
+    [-97.612838, 30.369913],
+    [-97.612838, 30.270335],
+    [-97.807159, 30.270335]
+  ]]),
+  turf.polygon([[
+    [-97.825698, 30.175405],
+    [-97.825698, 30.264404],
+    [-97.630691, 30.264404],
+    [-97.630691, 30.175405],
+    [-97.825698, 30.175405]
+  ]])
+]);
+var points = turf.featurecollection([
+  turf.point([-97.709655, 30.311245],
+    {population: 500}),
+  turf.point([-97.766647, 30.345028],
+    {population: 400}),
+  turf.point([-97.765274, 30.294646],
+    {population: 600}),
+  turf.point([-97.753601, 30.216355],
+    {population: 500}),
+  turf.point([-97.667083, 30.208047],
+  {population: 200})
+]);
+
+var inField = 'population';
+var outField = 'pop_deviation';
+
+var deviated = turf.deviation(
+  polygons, points, inField, outField);
+
+var result = turf.featurecollection(
+  points.features.concat(deviated.features));
+
+//=result
 ```
 
-###Example
+## Installation
 
-```javascript
-var deviation = require('turf-deviation')
-var point = require('turf-point')
-var polygon = require('turf-polygon')
-var featurecollection = require('turf-featurecollection')
+Requires [nodejs](http://nodejs.org/).
 
-var poly1 = polygon([[[0,0],[10,0],[10,10], [0,10]]])
-var poly2 = polygon([[[10,0],[20,10],[20,20], [20,0]]])
-var polyFC = featurecollection([poly1, poly2])
-var pt1 = point(1,1, {population: 500})
-var pt2 = point(1,3, {population: 400})
-var pt3 = point(14,2, {population: 600})
-var pt4 = point(13,1, {population: 500})
-var pt5 = point(19,7, {population: 200})
-var ptFC = featurecollection([pt1, pt2, pt3, pt4, pt5])
-
-var inField = 'population'
-var outField = 'pop_deviation'
-
-var deviated = deviation(polyFC, ptFC, inField, outField)
-
-console.log(deviated.features[0].properties.pop_deviation)
-console.log(deviated.features[1].properties.pop_deviation)
+```sh
+$ npm install turf-deviation
 ```
+
+## Tests
+
+```sh
+$ npm test
+```
+
