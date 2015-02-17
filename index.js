@@ -112,7 +112,7 @@ var inside = require('turf-inside');
  * //=result
  */
 
-module.exports = function(polyFC, ptFC, inField, outField, done){
+module.exports = function(polyFC, ptFC, inField, outField){
   polyFC.features.forEach(function(poly){
     if(!poly.properties){
       poly.properties = {};
