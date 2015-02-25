@@ -6,11 +6,11 @@ var inside = require('turf-inside');
  *
  * @module turf/deviation
  * @category aggregation
- * @param {FeatureCollection} polygons a FeatureCollection of {@link Polygon} features
- * @param {FeatureCollection} points a FeatureCollection of {@link Point} features
+ * @param {FeatureCollection<Polygon>} polygons input polygons
+ * @param {FeatureCollection<Point>} points input points
  * @param {String} inField the field in `points` from which to aggregate
  * @param {String} outField the field to append to `polygons` representing deviation
- * @return {FeatureCollection} a FeatureCollection of Polygon features with appended field representing deviation
+ * @return {FeatureCollection<Polygon>} polygons with appended field representing deviation
  * @example
  * var polygons = {
  *   "type": "FeatureCollection",
