@@ -2,7 +2,7 @@ var ss = require('simple-statistics');
 var inside = require('turf-inside');
 
 /**
- * Calculates the standard deviation value of a field for points within a set of polygons.
+ * Calculates the standard deviation value of a field for a set of {@link Point|points} within a set of {@link Polygon|polygons}.
  *
  * @module turf/deviation
  * @category aggregation
